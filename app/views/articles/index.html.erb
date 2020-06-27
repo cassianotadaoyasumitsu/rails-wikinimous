@@ -1,9 +1,11 @@
-<ul>
+<h1 class="mb-5">Articles</h1>
+
+<ul class="list-group">
   <% @articles.each do |article| %>
-  <li><%= link_to article.title, article_path(article) %></li>
+  <li class="list-group-item"><%= link_to article.title, article_path(article) %></li>
 <% end %>
 </ul>
 
-<p><%= link_to 'CREATE', new_article_path %></p>
+<p><%= link_to 'CREATE', new_article_path, class: 'btn btn-outline-primary w-100 mt-5' %></p>
 
 
