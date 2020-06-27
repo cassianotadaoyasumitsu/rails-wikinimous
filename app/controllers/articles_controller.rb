@@ -13,9 +13,11 @@ class ArticlesController < ApplicationController
 
   def create
     @article = Article.new(article_params)
-    @article.save
-
-    redirect_to articles_path
+    if @article.save
+      redirect_to articles_path
+    else
+      render :new
+    end
   end
 
   def edit
@@ -24,9 +26,11 @@ class ArticlesController < ApplicationController
 
   def update
     @article = Article.find(params[:id])
-    @article.update(article_params)
-
-    redirect_to articles_path
+    if @article.update(article_params)
+      redirect_to articles_path
+    else
+      render :edit
+    end
   end
 
   def destroy
